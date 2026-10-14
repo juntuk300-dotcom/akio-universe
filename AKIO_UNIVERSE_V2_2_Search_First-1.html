@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#09090d">
+<title>AKIO-UNIVERSE — One Platform. Infinite Stories.</title>
+<style>
+:root{--bg:#09090d;--panel:#121218;--panel2:#191920;--red:#ef233c;--red2:#a70f28;--text:#f7f7fb;--muted:#a5a5b2;--line:#292932}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 80% -10%,#38101b 0,transparent 38%),var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}button,input,select{font:inherit}button{cursor:pointer}.wrap{max-width:1180px;margin:auto;padding:0 18px}
+header{position:sticky;top:0;z-index:10;background:#09090de8;backdrop-filter:blur(18px);border-bottom:1px solid #ffffff0e}.nav{height:68px;display:flex;align-items:center;gap:20px}.logo{font-size:25px;font-weight:950;letter-spacing:2px;color:#fff;text-decoration:none}.logo span{color:var(--red)}.navlinks{display:flex;gap:17px;margin-left:12px}.navlinks a{color:#c9c9d2;text-decoration:none;font-size:14px}.navlinks a:hover{color:white}.navright{margin-left:auto;display:flex;gap:9px;align-items:center}.lang,.iconbtn{border:1px solid var(--line);background:var(--panel);color:white;border-radius:10px;padding:9px 11px}.iconbtn{font-size:18px}
+.hero{padding:30px 0 22px}.heroCard{position:relative;overflow:hidden;min-height:320px;border:1px solid #ffffff18;border-radius:24px;padding:32px;display:flex;align-items:center;background:linear-gradient(105deg,#1b0b12 0%,#281019 48%,#101018 100%)}.heroCard:before{content:"";position:absolute;width:280px;height:280px;right:9%;top:4px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#ff687a,#9b0d2a 42%,#290a17 70%);filter:drop-shadow(0 0 65px #ed173e55);opacity:.85}.heroCard:after{content:"";position:absolute;right:12%;top:-40px;width:230px;height:400px;transform:rotate(28deg);background:linear-gradient(90deg,transparent,#ffffff0b,transparent);border-left:1px solid #ffffff16;border-right:1px solid #ffffff16}.heroContent{position:relative;z-index:1;max-width:560px}.eyebrow{display:inline-flex;align-items:center;gap:8px;background:#ef233c1b;color:#ff7d8c;border:1px solid #ef233c55;border-radius:999px;padding:7px 11px;font-size:11px;font-weight:800;letter-spacing:1.5px}.dot{width:7px;height:7px;background:var(--red);border-radius:50%;box-shadow:0 0 10px var(--red)}h1{font-size:clamp(32px,6vw,55px);line-height:1.04;letter-spacing:-1.7px;margin:18px 0 13px}.hero p{color:#c3c0ca;line-height:1.65;max-width:450px;margin:0 0 22px}.actions{display:flex;gap:10px;flex-wrap:wrap}.primary,.secondary{border:0;border-radius:12px;padding:12px 16px;font-weight:800}.primary{background:linear-gradient(135deg,#ff4056,var(--red2));color:white;box-shadow:0 9px 25px #ef233c2b}.secondary{background:#ffffff0b;color:#fff;border:1px solid #ffffff25}.section{padding:19px 0 8px}.sectionHead{display:flex;justify-content:space-between;align-items:end;gap:12px;margin-bottom:14px}.section h2{font-size:21px;margin:0;letter-spacing:-.5px}.sub{font-size:12px;color:var(--muted);margin-top:5px}.seeall{color:#ff6576;text-decoration:none;font-size:13px;font-weight:700}
+.tools{display:flex;gap:9px;margin:14px 0 17px;flex-wrap:wrap}.searchbox input{font-size:15px;padding-top:14px;padding-bottom:14px}.searchbox:focus-within:after{content:"PENCARIAN AKTIF";position:absolute;right:10px;top:15px;font-size:9px;letter-spacing:1px;color:#ff7183;pointer-events:none}.searchbox{flex:1;min-width:190px;position:relative}.searchbox input{width:100%;padding:12px 14px 12px 40px;border:1px solid var(--line);border-radius:12px;background:#111117;color:white;outline:none}.searchbox input:focus{border-color:#a8263c}.searchbox:before{content:"⌕";position:absolute;left:14px;top:5px;font-size:25px;color:#999}.filter{border:1px solid var(--line);background:#111117;color:#ddd;border-radius:12px;padding:11px 12px;max-width:48%}
+.chips{display:flex;gap:8px;overflow:auto;padding:1px 0 13px;scrollbar-width:none}.chip{white-space:nowrap;border:1px solid var(--line);background:#111117;color:#c7c7d0;padding:8px 13px;border-radius:999px;font-size:12px}.chip.active{background:#ef233c1c;border-color:#ef233c;color:#ff7b8a}
+.grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}.card{min-width:0;border:1px solid #ffffff0d;background:var(--panel);border-radius:15px;overflow:hidden;transition:transform .2s,border-color .2s}.card:hover{transform:translateY(-4px);border-color:#ef233c66}.poster{aspect-ratio:3/4;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;background:linear-gradient(145deg,#30101b,#11111a)}.poster:before{content:"";position:absolute;width:80%;height:80%;border:1px solid #ffffff24;transform:rotate(38deg);border-radius:42% 58% 60% 40%;box-shadow:0 0 45px #ef233c25}.poster:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#09090de8,transparent 60%)}.poster .sig{z-index:1;font-size:clamp(27px,4vw,42px);font-weight:950;letter-spacing:-2px;text-shadow:0 4px 22px #000}.poster .tag{position:absolute;top:9px;left:9px;z-index:2;background:#08080dbd;border:1px solid #ffffff22;padding:5px 7px;border-radius:6px;font-size:9px;font-weight:800;letter-spacing:.5px}.poster .heart{position:absolute;top:7px;right:7px;z-index:2;width:30px;height:30px;border-radius:9px;background:#08080dbd;color:#fff;border:1px solid #ffffff26;font-size:16px}.cardbody{padding:11px}.title{font-weight:800;font-size:13px;line-height:1.35;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.meta{font-size:11px;color:var(--muted);margin-top:6px;display:flex;justify-content:space-between;gap:4px}.type{color:#ff7787}.empty{display:none;color:var(--muted);padding:24px;text-align:center;border:1px dashed var(--line);border-radius:14px}
+.info{margin:25px 0 30px;padding:17px;border-radius:16px;background:#101016;border:1px solid var(--line);display:flex;gap:13px;align-items:flex-start}.info .shield{font-size:24px}.info strong{display:block;font-size:14px;margin-bottom:5px}.info p{font-size:12px;line-height:1.6;color:var(--muted);margin:0}
+footer{border-top:1px solid var(--line);padding:22px 0 30px;color:var(--muted);font-size:12px}.footrow{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}.toast{position:fixed;bottom:20px;left:50%;transform:translate(-50%,20px);background:#f7f7fb;color:#14141a;padding:11px 16px;border-radius:12px;font-size:13px;font-weight:700;opacity:0;pointer-events:none;transition:.25s;z-index:20;box-shadow:0 10px 40px #0008}.toast.show{opacity:1;transform:translate(-50%,0)}
+
+.modal{position:fixed;inset:0;z-index:30;display:none;align-items:center;justify-content:center;padding:18px;background:#000b;backdrop-filter:blur(8px)}
+.modal.open{display:flex}.modalbox{width:min(680px,100%);max-height:88vh;overflow:auto;background:#111117;border:1px solid #ffffff20;border-radius:22px;box-shadow:0 25px 90px #000b}
+.modalhero{min-height:180px;padding:24px;position:relative;display:flex;align-items:end;background:linear-gradient(135deg,#5c1025,#17131f)}.modalhero h3{font-size:30px;margin:0;position:relative;z-index:1}.closemodal{position:absolute;top:13px;right:13px;z-index:2;border:1px solid #ffffff35;background:#09090ddd;color:white;border-radius:10px;width:38px;height:38px;font-size:20px}
+.modalcontent{padding:21px}.modalmeta{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:13px}.pill{font-size:11px;padding:6px 9px;border-radius:999px;background:#ffffff0b;border:1px solid #ffffff1a;color:#d9d9e2}.modalcontent p{font-size:14px;line-height:1.7;color:#c4c4ce}.modalactions{display:flex;gap:9px;flex-wrap:wrap;margin-top:18px}
+.card{cursor:pointer}
+
+@media(max-width:850px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}.navlinks{gap:11px}.navlinks a{font-size:12px}.heroCard:before{right:-7%;opacity:.45}.heroCard{padding:25px;min-height:300px}}
+@media(max-width:560px){.wrap{padding:0 13px}.nav{height:60px;gap:10px}.logo{font-size:23px}.navlinks{display:none}.navright{gap:6px}.lang{padding:8px;font-size:12px}.iconbtn{padding:7px 9px}.hero{padding-top:18px}.heroCard{min-height:330px;padding:23px 19px;align-items:flex-start}.heroCard:before{width:210px;height:210px;right:-25px;top:145px;opacity:.4}.heroCard:after{right:0;top:110px;height:280px}.heroContent{max-width:100%}h1{font-size:38px}.hero p{font-size:13px;max-width:330px}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.cardbody{padding:9px}.title{font-size:12px}.poster .sig{font-size:36px}.section h2{font-size:19px}.filter{flex:1}.section{padding-top:16px}}
+
+/* AKIO-UNIVERSE V2 extensions */
+.brand-universe{font-size:8px;letter-spacing:2px;color:#f15b6c;display:block;margin-top:-4px;font-weight:900}
+.logo{line-height:1}.red-text{color:#ff4056}.section-mark{font-size:12px;color:#ff697b;letter-spacing:0}
+.mini-label{display:inline-flex;align-items:center;white-space:nowrap;font-size:9px;font-weight:900;letter-spacing:1.2px;color:#ff8391;background:#ef233c16;border:1px solid #ef233c44;padding:6px 8px;border-radius:999px}
+.feature-panel{position:relative;overflow:hidden;min-height:205px;border:1px solid #ffffff14;border-radius:19px;padding:23px;display:flex;align-items:center;gap:18px;background:linear-gradient(110deg,#171018,#111119)}
+.feature-icon{width:46px;height:46px;display:grid;place-items:center;flex:0 0 46px;background:#ef233c20;border:1px solid #ef233c55;border-radius:14px;color:#ff6a7b;font-size:25px}
+.feature-copy{position:relative;z-index:1;max-width:560px}.feature-copy h3,.studio h3,.missions h3{margin:0 0 8px;font-size:20px}.feature-copy p,.studio-intro p{font-size:13px;line-height:1.65;color:#b7b5c0;margin:0 0 15px;max-width:510px}
+.feature-art{position:absolute;right:22px;top:50%;transform:translateY(-50%);width:170px;height:170px;border:1px solid #ffffff18;border-radius:50%;display:grid;place-items:center;opacity:.75;background:radial-gradient(circle,#651426,#1b0b15 65%,transparent 67%)}
+.feature-art span{font-size:22px;font-weight:950;letter-spacing:3px;color:#ff8b99}.feature-art i{position:absolute;font-style:normal;font-weight:950;font-size:58px;color:#ffffff0b;transform:rotate(-18deg)}
+.watch-panel{background:linear-gradient(110deg,#10131d,#190d16)}.watch-art{background:radial-gradient(circle,#192e4d,#11111a 65%,transparent 67%);border-color:#40567a55}.watch-art span{color:#9ebdff}
+.studio{padding:20px;border-radius:20px;border:1px solid var(--line);background:linear-gradient(140deg,#151119,#101016)}
+.studio-intro{display:flex;align-items:center;gap:13px;margin-bottom:20px}.studio-orb{width:48px;height:48px;display:grid;place-items:center;border-radius:15px;background:linear-gradient(145deg,#fa4059,#720d28);font-size:26px;box-shadow:0 8px 25px #ef233c24}.studio-intro h3{margin-bottom:5px}.studio-intro p{margin:0}
+.character-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+.character-form label{display:flex;flex-direction:column;gap:7px;color:#d8d6df;font-size:12px;font-weight:750}
+.character-form input,.character-form select,.character-form textarea{width:100%;min-width:0;background:#0b0b11;color:#f6f6fb;border:1px solid #30303b;border-radius:11px;padding:11px 12px;outline:none}
+.character-form input:focus,.character-form select:focus,.character-form textarea:focus{border-color:#e72c45}
+.character-form textarea{resize:vertical}.character-form .full{grid-column:1/-1}.form-actions{display:flex;gap:9px;flex-wrap:wrap}
+.character-preview{display:flex;align-items:center;gap:15px;margin-top:19px;padding:16px;border:1px solid #ffffff14;background:#0c0c12;border-radius:15px}
+.avatar-art{width:68px;height:80px;flex:0 0 68px;display:grid;place-items:center;border-radius:14px;background:radial-gradient(circle at 50% 30%,#ff8190,#8d1833 42%,#1a0b16 80%);font-size:30px;box-shadow:inset 0 0 20px #ffffff12}
+.character-preview h3{font-size:18px;margin:7px 0 4px}.character-preview p{font-size:12px;line-height:1.5;color:#aaa9b6;margin:4px 0}
+.universe-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:13px}
+.profile-card,.missions{background:var(--panel);border:1px solid var(--line);border-radius:17px;padding:19px}
+.profile-card{display:flex;gap:15px;align-items:center}.profile-avatar{width:65px;height:65px;flex:0 0 65px;display:grid;place-items:center;border-radius:19px;background:linear-gradient(145deg,#fa4059,#710d26);font-size:27px;font-weight:950}
+.profile-info h3{margin:6px 0;font-size:19px}.profile-info p{font-size:12px;color:#b7b5c0;margin:6px 0 10px}.exp-track{height:6px;background:#292932;border-radius:99px;overflow:hidden;margin-bottom:12px}.exp-track span{display:block;height:100%;width:0;background:linear-gradient(90deg,#fa4059,#ff9aa6);transition:width .25s}
+.missions h3{font-size:17px}.mission{display:flex;justify-content:space-between;gap:12px;padding:11px 0;border-bottom:1px solid #ffffff0d;font-size:12px;color:#d4d2dc}.mission b{color:#ff7888}.missions .sub{line-height:1.5}
+.bottom-nav{display:none}
+@media(max-width:850px){.feature-art{right:8px;opacity:.35}.feature-copy{max-width:70%}.universe-grid{grid-template-columns:1fr}}
+@media(max-width:560px){
+ .brand-universe{font-size:7px;letter-spacing:1.6px}.nav{gap:7px}.feature-panel{padding:18px;min-height:225px;align-items:flex-start}.feature-icon{width:39px;height:39px;flex-basis:39px;font-size:21px}.feature-copy{max-width:100%;padding-right:0}.feature-copy h3{font-size:18px}.feature-copy p{max-width:100%;font-size:12px}.feature-art{width:115px;height:115px;right:-24px;top:auto;bottom:-27px;transform:none;opacity:.22}.feature-art span{font-size:16px}.feature-art i{font-size:40px}
+ .studio{padding:14px}.studio-intro{align-items:flex-start}.studio-intro h3{font-size:17px}.studio-intro p{font-size:12px}.character-form{grid-template-columns:1fr;gap:11px}.character-form .full{grid-column:auto}.character-preview{align-items:flex-start;padding:12px}.avatar-art{width:55px;height:65px;flex-basis:55px}.profile-card{align-items:flex-start;padding:15px}.profile-avatar{width:51px;height:51px;flex-basis:51px;border-radius:15px}.profile-info h3{font-size:16px}.missions{padding:15px}
+ body{padding-bottom:65px}.bottom-nav{display:flex;position:fixed;z-index:15;bottom:0;left:0;right:0;background:#0b0b10f2;backdrop-filter:blur(16px);border-top:1px solid #ffffff16;padding:8px 6px calc(8px + env(safe-area-inset-bottom));justify-content:space-around}
+ .bottom-nav a{display:flex;flex-direction:column;align-items:center;gap:3px;color:#bdbbc7;text-decoration:none;font-size:9px;min-width:0}.bottom-nav a span:first-child{font-size:17px}.bottom-nav a:hover{color:#ff7787}
+}
+
+
+
+.bottom-nav{display:none}
+@media(max-width:700px){body{padding-bottom:78px}.bottom-nav{display:flex;position:fixed;z-index:25;bottom:0;left:0;right:0;background:#0b0b10f5;backdrop-filter:blur(16px);border-top:1px solid #ffffff16;padding:9px 5px calc(9px + env(safe-area-inset-bottom));justify-content:space-around}.bottom-nav a{display:flex;flex-direction:column;align-items:center;gap:4px;color:#bdbbc7;text-decoration:none;font-size:10px;min-width:0;flex:1}.bottom-nav a span:first-child{font-size:19px}.bottom-nav a:hover{color:#ff7787}}
+</style>
+</head>
+<body>
+<header><div class="wrap nav">
+<a class="logo" href="#" aria-label="AKIO home">AKI<span>O</span><small class="brand-universe">UNIVERSE</small></a>
+<nav class="navlinks"><a href="#discover">Home</a><a href="#catalog">Search</a><a href="#read">Read</a><a href="#watch">Watch</a><a href="#universe">My Universe</a><a href="#account">Account</a></nav>
+<div class="navright"><select class="lang" id="language" aria-label="Language"><option value="id">🇮🇩 ID</option><option value="en">🇬🇧 EN</option><option value="ja">🇯🇵 日本語</option><option value="ko">🇰🇷 한국어</option><option value="zh">🇨🇳 中文</option></select><button class="iconbtn" id="profile" aria-label="Profile">◉</button></div>
+</div></header>
+<main class="wrap">
+<section class="hero" id="discover"><div class="heroCard"><div class="heroContent">
+<div class="eyebrow"><span class="dot"></span><span>ONE PLATFORM. INFINITE STORIES.</span></div>
+<h1>One Platform.<br><span class="red-text">Infinite Stories.</span></h1>
+<p>Jelajahi anime, donghua, manga, manhwa, dan manhua dalam satu universe. Cari judul, temukan cerita, dan simpan favoritmu.</p>
+<div class="actions"><button class="primary" onclick="document.getElementById('catalog').scrollIntoView({behavior:'smooth'})">Explore Universe ↗</button><button class="secondary" onclick="document.getElementById('search').focus();document.getElementById('catalog').scrollIntoView({behavior:'smooth'})">⌕ Cari judul</button></div>
+</div></div></section>
+<section class="section" id="catalog">
+<div class="sectionHead"><div><h2 data-i="popular">Jelajahi judul</h2><div class="sub" data-i="popularsub">Temukan sesuatu yang baru untuk ditonton atau dibaca.</div></div><a class="seeall" href="#catalog" data-i="viewall">Lihat semua ↗</a></div>
+<div class="tools"><div class="searchbox"><input id="search" type="search" placeholder="Cari judul..." data-placeholder="search" autocomplete="off"></div><select class="filter" id="kind"><option value="all" data-i="alltypes">Semua kategori</option><option value="Anime">Anime</option><option value="Donghua">Donghua</option><option value="Manga">Manga</option><option value="Manhwa">Manhwa</option></select><select class="filter" id="sort"><option value="featured" data-i="featured">Pilihan</option><option value="az" data-i="az">Nama A–Z</option></select></div>
+<div class="chips" id="chips"><button class="chip active" data-genre="All" data-i="all">Semua</button><button class="chip" data-genre="Action">Action</button><button class="chip" data-genre="Fantasy">Fantasy</button><button class="chip" data-genre="Romance">Romance</button><button class="chip" data-genre="Adventure">Adventure</button><button class="chip" data-genre="Slice of Life">Slice of Life</button></div>
+<div class="grid" id="grid"></div><div class="empty" id="empty" data-i="empty">Tidak ada judul yang cocok. Coba kata kunci lain.</div>
+</section>
+<section class="section" id="manga"><div class="sectionHead"><div><h2 data-i="mangaheading">Baca komik</h2><div class="sub" data-i="mangasub">Komik yang dipublikasikan dengan izin akan tersedia di sini.</div></div></div>
+<section class="section" id="read">
+  <div class="sectionHead"><div><h2>AKIO READ <span class="section-mark">/ komik universe</span></h2><div class="sub">Manga, manhwa, dan manhua — ruang untuk karya original dan publikasi berizin.</div></div><span class="mini-label">COMING SOON</span></div>
+  <div class="feature-panel read-panel"><div class="feature-icon">▤</div><div class="feature-copy"><h3>Stories worth getting lost in.</h3><p>Bangun katalog bacaan yang rapi, halaman detail komik, daftar chapter, dan progres membaca. Untuk versi demo ini, chapter penuh belum tersedia.</p><button class="secondary" onclick="showToast('AKIO READ: reader dan chapter belum aktif di prototipe ini.')">Lihat rencana READ ↗</button></div><div class="feature-art comic-art"><span>READ</span><i>AKIO</i></div></div>
+</section>
+
+<section class="section" id="watch">
+  <div class="sectionHead"><div><h2>AKIO WATCH <span class="section-mark">/ anime & donghua</span></h2><div class="sub">Temukan judul dan nantinya lanjutkan ke platform resmi pemegang hak.</div></div><span class="mini-label">DISCOVERY</span></div>
+  <div class="feature-panel watch-panel"><div class="feature-icon">▷</div><div class="feature-copy"><h3>Your next watch starts here.</h3><p>Bagian ini dirancang untuk rekomendasi, informasi seri, status tayang, dan tautan resmi yang sudah diverifikasi. Belum ada video streaming di prototipe.</p><button class="secondary" onclick="document.getElementById('catalog').scrollIntoView({behavior:'smooth'})">Jelajahi katalog ↗</button></div><div class="feature-art watch-art"><span>WATCH</span><i>∞</i></div></div>
+</section>
+
+<section class="section" id="universe">
+  <div class="sectionHead"><div><h2>MY UNIVERSE</h2><div class="sub">Profil lokal dan koleksi favoritmu.</div></div><span class="mini-label">ON THIS DEVICE</span></div>
+  <div class="universe-grid">
+    <div class="profile-card"><div class="profile-avatar">A</div><div class="profile-info"><span class="mini-label">AKIO MEMBER</span><h3 id="profileNameText">Universe Explorer</h3><p>Level <b id="levelNum">1</b> · <span id="expText">0 / 100 EXP</span></p><div class="exp-track"><span id="expBar"></span></div><button class="secondary" id="editProfile">Edit nama profil</button></div></div>
+    <div class="missions"><h3>✦ Daily Missions</h3><div class="mission"><span>Jelajahi 3 judul</span><b id="missionExplore">0/3</b></div><div class="mission"><span>Simpan 1 favorit</span><b id="missionFav">0/1</b></div><p class="sub">Misi hanya simulasi lokal; EXP tidak punya nilai uang dan tidak tersinkron ke server.</p></div>
+  </div>
+</section>
+
+<div class="info"><div class="shield">📖</div><div><strong data-i="creatorTitle">Ruang untuk kreator independen</strong><p data-i="creatorText">AKIO dirancang untuk menampilkan komik original dari kreator yang memberi izin. Koleksi bacaan akan ditambahkan setelah hak publikasinya jelas.</p></div></div></section>
+<section class="section" id="anime"><div class="sectionHead"><div><h2 data-i="animeheading">Tonton secara resmi</h2><div class="sub" data-i="animesub">Temukan judul dan lanjutkan ke layanan resmi pemegang hak.</div></div></div><div class="info"><div class="shield">🎬</div><div><strong data-i="officialTitle">Dukung kreator dan penerbit</strong><p data-i="officialText">AKIO tidak menyediakan video atau chapter milik pihak lain tanpa izin. Bagian ini nantinya berisi informasi judul dan tautan resmi yang telah diperiksa.</p></div></div></section>
+<section class="section" id="mylist"><div class="sectionHead"><div><h2 data-i="mylistheading">Daftar favoritku</h2><div class="sub" data-i="mysub">Judul yang kamu simpan di perangkat ini.</div></div></div><div id="mygrid" class="grid"></div><div id="myempty" class="empty" style="display:block" data-i="myempty">Belum ada favorit. Tekan ♡ pada kartu judul untuk menyimpannya.</div></section>
+<div class="info"><div class="shield">🛡️</div><div><strong data-i="safetyTitle">Koleksi bertanggung jawab</strong><p data-i="safetyText">Kartu pada versi demo ini hanya contoh tampilan, bukan katalog resmi atau tautan menonton. Sebelum publikasi, AKIO harus memeriksa izin gambar, informasi, dan hak penggunaan setiap karya.</p></div></div>
+</main>
+<footer><div class="wrap footrow"><div><span class="logo" style="font-size:19px">AKI<span>O</span></span><div style="margin-top:7px" data-i="tagline">Tempat menemukan cerita berikutnya.</div></div><div>© 2026 AKIO · <span data-i="demo">Prototype demo</span></div></div><div class="wrap" style="padding-top:12px;color:#777783">AKIO-UNIVERSE Search-First Demo • Belum terhubung ke backend, akun online, reader chapter, atau streaming.</div>
+<section class="section" id="account">
+  <div class="sectionHead"><div><h2>ACCOUNT CENTER</h2><div class="sub">Atur profil, keamanan, dan preferensi AKIO kamu.</div></div><span class="mini-label">LOCAL DEMO</span></div>
+  <div class="account-layout">
+    <div class="account-card">
+      <div class="account-avatar" id="accountAvatar">U</div>
+      <div class="account-main"><span class="mini-label">MY ACCOUNT</span><h3 id="accountDisplayName">Universe Explorer</h3><p id="accountDisplayEmail">Profil tersimpan di perangkat ini</p><button class="secondary" id="accountEdit">Edit profil</button></div>
+    </div>
+    <div class="settings-card">
+      <h3>Pengaturan</h3>
+      <button class="settings-row" id="accountEditName"><span><b>Nama profil</b><small>Ubah nama yang ditampilkan</small></span><span>›</span></button>
+      <button class="settings-row" id="accountResetData"><span><b>Reset data lokal</b><small>Hapus profil dan preferensi lokal</small></span><span>›</span></button>
+      <p class="sub">Belum ada akun online atau login sungguhan di prototipe ini.</p>
+    </div>
+  </div>
+</section>
+
+</footer>
+
+<div class="modal" id="detailModal" role="dialog" aria-modal="true" aria-labelledby="detailTitle">
+  <div class="modalbox">
+    <div class="modalhero" id="detailHero"><button class="closemodal" id="closeModal" aria-label="Close">×</button><h3 id="detailTitle">Title</h3></div>
+    <div class="modalcontent">
+      <div class="modalmeta" id="detailMeta"></div>
+      <p id="detailDescription"></p>
+      <div id="detailNote" class="info" style="margin:16px 0 0"><div class="shield">ℹ️</div><div><strong>Demo AKIO</strong><p>Informasi ini adalah contoh prototipe. Detail dan tautan resmi akan ditambahkan setelah diverifikasi.</p></div></div>
+      <div class="modalactions"><button class="primary" id="detailFavorite">♡ Tambah ke favorit</button><button class="secondary" id="detailDone">Tutup</button></div>
+    </div>
+  </div>
+</div>
+
+<nav class="bottom-nav" aria-label="Navigasi utama">
+<a href="#discover"><span>⌂</span><span>Home</span></a>
+<a href="#catalog" onclick="setTimeout(()=>document.getElementById('search').focus(),150)"><span>⌕</span><span>Search</span></a>
+<a href="#read"><span>▤</span><span>Read</span></a>
+<a href="#watch"><span>▷</span><span>Watch</span></a>
+<a href="#account"><span>◉</span><span>Account</span></a>
+</nav>
+<div class="toast" id="toast"></div>
+<script>
+const titles=[
+{id:1,title:'Crimson Horizon',type:'Anime',genre:'Action',status:'DEMO',mark:'CH',tone:'linear-gradient(145deg,#531426,#17131f 65%)'},
+{id:2,title:'Moonlit Archive',type:'Manhwa',genre:'Fantasy',status:'DEMO',mark:'MA',tone:'linear-gradient(145deg,#26365c,#17131f 65%)'},
+{id:3,title:'Paper Lantern Days',type:'Manga',genre:'Slice of Life',status:'DEMO',mark:'PL',tone:'linear-gradient(145deg,#8b4c36,#221720 65%)'},
+{id:4,title:'Starfall Protocol',type:'Donghua',genre:'Adventure',status:'DEMO',mark:'SP',tone:'linear-gradient(145deg,#174e57,#141521 65%)'},
+{id:5,title:'Velvet Comet',type:'Manhwa',genre:'Romance',status:'DEMO',mark:'VC',tone:'linear-gradient(145deg,#762c50,#211320 65%)'},
+{id:6,title:'The Last Ember',type:'Anime',genre:'Fantasy',status:'DEMO',mark:'LE',tone:'linear-gradient(145deg,#7a351b,#1a1518 65%)'},
+{id:7,title:'Cloudstep Journey',type:'Manga',genre:'Adventure',status:'DEMO',mark:'CJ',tone:'linear-gradient(145deg,#315b78,#151725 65%)'},
+{id:8,title:'Redline Academy',type:'Anime',genre:'Action',status:'DEMO',mark:'RA',tone:'linear-gradient(145deg,#7c1428,#1a1119 65%)'},
+{id:9,title:'Garden After Rain',type:'Manhwa',genre:'Slice of Life',status:'DEMO',mark:'GR',tone:'linear-gradient(145deg,#38624d,#171922 65%)'},
+{id:10,title:'Beyond the Jade Gate',type:'Donghua',genre:'Fantasy',status:'DEMO',mark:'JG',tone:'linear-gradient(145deg,#5b4c8a,#181521 65%)'}
+];
+const translations={
+id:{discover:'Jelajahi',manga:'Manga',anime:'Anime',mylist:'Favorit',eyebrow:'DUNIA ANIME-MU',headline:'Temukan dunia<br>cerita favoritmu.',intro:'Jelajahi anime, donghua, manga, dan manhwa dalam satu tempat. Simpan favoritmu dan temukan cerita berikutnya.',explore:'Jelajahi koleksi ↗',about:'Kenali AKIO',popular:'Jelajahi judul',popularsub:'Temukan sesuatu yang baru untuk ditonton atau dibaca.',viewall:'Lihat semua ↗',search:'Cari judul...',alltypes:'Semua kategori',featured:'Pilihan',az:'Nama A–Z',all:'Semua',empty:'Tidak ada judul yang cocok. Coba kata kunci lain.',mangaheading:'Baca komik',mangasub:'Komik yang dipublikasikan dengan izin akan tersedia di sini.',creatorTitle:'Ruang untuk kreator independen',creatorText:'AKIO dirancang untuk menampilkan komik original dari kreator yang memberi izin. Koleksi bacaan akan ditambahkan setelah hak publikasinya jelas.',animeheading:'Tonton secara resmi',animesub:'Temukan judul dan lanjutkan ke layanan resmi pemegang hak.',officialTitle:'Dukung kreator dan penerbit',officialText:'AKIO tidak menyediakan video atau chapter milik pihak lain tanpa izin. Bagian ini nantinya berisi informasi judul dan tautan resmi yang telah diperiksa.',mylistheading:'Daftar favoritku',mysub:'Judul yang kamu simpan di perangkat ini.',myempty:'Belum ada favorit. Tekan ♡ pada kartu judul untuk menyimpannya.',safetyTitle:'Koleksi bertanggung jawab',safetyText:'Kartu pada versi demo ini hanya contoh tampilan, bukan katalog resmi atau tautan menonton. Sebelum publikasi, AKIO harus memeriksa izin gambar, informasi, dan hak penggunaan setiap karya.',tagline:'Tempat menemukan cerita berikutnya.',demo:'Prototype demo',coming:'Tentang AKIO — segera hadir',saved:'Disimpan ke favorit',removed:'Dihapus dari favorit',profile:'Profil pengguna — segera hadir'},
+en:{discover:'Discover',manga:'Manga',anime:'Anime',mylist:'My List',eyebrow:'YOUR ANIME UNIVERSE',headline:'Find your next<br>favorite story.',intro:'Explore anime, donghua, manga, and manhwa in one place. Save favorites and discover what to enjoy next.',explore:'Explore collection ↗',about:'About AKIO',popular:'Explore titles',popularsub:'Find something new to watch or read.',viewall:'View all ↗',search:'Search titles...',alltypes:'All categories',featured:'Featured',az:'Name A–Z',all:'All',empty:'No matching titles. Try another search.',mangaheading:'Read comics',mangasub:'Comics published with permission will be available here.',creatorTitle:'A space for independent creators',creatorText:'AKIO is designed to feature original comics from creators who grant permission. Reading titles will be added once publication rights are confirmed.',animeheading:'Watch officially',animesub:'Discover titles and continue to official rights-holder services.',officialTitle:'Support creators and publishers',officialText:'AKIO does not host third-party videos or chapters without permission. This section will feature title information and verified official links.',mylistheading:'My favorites',mysub:'Titles saved on this device.',myempty:'No favorites yet. Tap ♡ on a title card to save it.',safetyTitle:'Responsible collection',safetyText:'Cards in this demo are visual examples, not an official catalog or watch links. Before launch, AKIO must verify image permissions, information, and usage rights for every work.',tagline:'Find your next story.',demo:'Demo prototype',coming:'About AKIO — coming soon',saved:'Added to favorites',removed:'Removed from favorites',profile:'User profile — coming soon'},
+ja:{discover:'見つける',manga:'マンガ',anime:'アニメ',mylist:'お気に入り',eyebrow:'あなたのアニメの世界',headline:'次のお気に入りの<br>物語を見つけよう。',intro:'アニメ、漫画、マンファ、動画作品をひとつの場所で探そう。',explore:'作品を探す ↗',about:'AKIOについて',popular:'作品を探す',popularsub:'新しい作品を見つけよう。',viewall:'すべて見る ↗',search:'作品を検索...',alltypes:'すべてのカテゴリ',featured:'おすすめ',az:'名前順 A–Z',all:'すべて',empty:'一致する作品がありません。',mangaheading:'漫画を読む',mangasub:'許可を得て公開された作品を掲載します。',creatorTitle:'インディークリエイターのために',creatorText:'許可を得たオリジナル作品を掲載する予定です。',animeheading:'公式サービスで視聴',animesub:'公式配信サービスへの案内を掲載します。',officialTitle:'クリエイターを応援',officialText:'許可のない動画や章は掲載しません。',mylistheading:'お気に入り',mysub:'この端末に保存した作品。',myempty:'お気に入りはまだありません。',safetyTitle:'権利を尊重した作品集',safetyText:'このデモのカードは見本です。公開前に利用許諾を確認します。',tagline:'次の物語を見つけよう。',demo:'デモ版',coming:'AKIOについて — 準備中',saved:'お気に入りに保存しました',removed:'お気に入りから削除しました',profile:'プロフィール — 準備中'},
+ko:{discover:'둘러보기',manga:'만화',anime:'애니',mylist:'내 목록',eyebrow:'나만의 애니 세계',headline:'다음으로 좋아할<br>이야기를 찾아보세요.',intro:'애니, 동화, 만화와 웹툰을 한곳에서 탐색하세요.',explore:'컬렉션 둘러보기 ↗',about:'AKIO 소개',popular:'작품 둘러보기',popularsub:'새로운 작품을 찾아보세요.',viewall:'모두 보기 ↗',search:'작품 검색...',alltypes:'모든 카테고리',featured:'추천',az:'이름 A–Z',all:'전체',empty:'일치하는 작품이 없습니다.',mangaheading:'만화 읽기',mangasub:'허가를 받은 작품을 이곳에 소개합니다.',creatorTitle:'독립 창작자를 위한 공간',creatorText:'게시 허가를 받은 오리지널 만화를 소개할 예정입니다.',animeheading:'공식 서비스에서 시청',animesub:'공식 서비스 링크를 제공합니다.',officialTitle:'창작자와 출판사를 응원하세요',officialText:'허가 없이 타인의 영상이나 챕터를 제공하지 않습니다.',mylistheading:'내 즐겨찾기',mysub:'이 기기에 저장된 작품.',myempty:'아직 즐겨찾기가 없습니다.',safetyTitle:'권리를 존중하는 컬렉션',safetyText:'데모 카드이며 공식 카탈로그가 아닙니다. 공개 전에 사용 권한을 확인합니다.',tagline:'다음 이야기를 찾아보세요.',demo:'데모 프로토타입',coming:'AKIO 소개 — 준비 중',saved:'즐겨찾기에 저장됨',removed:'즐겨찾기에서 삭제됨',profile:'프로필 — 준비 중'},
+zh:{discover:'发现',manga:'漫画',anime:'动画',mylist:'我的收藏',eyebrow:'你的动漫世界',headline:'发现下一段<br>喜爱的故事。',intro:'在一个地方探索动画、国漫、漫画和韩漫。收藏喜欢的作品，发现下一段故事。',explore:'探索作品 ↗',about:'关于 AKIO',popular:'探索作品',popularsub:'发现值得观看或阅读的新作品。',viewall:'查看全部 ↗',search:'搜索作品...',alltypes:'所有类别',featured:'精选',az:'名称 A–Z',all:'全部',empty:'没有找到匹配的作品。',mangaheading:'阅读漫画',mangasub:'这里只会展示获得授权发布的漫画。',creatorTitle:'独立创作者空间',creatorText:'计划展示获得创作者授权的原创漫画。',animeheading:'前往官方平台观看',animesub:'查找作品并前往版权方的官方服务。',officialTitle:'支持创作者与出版商',officialText:'未经许可，AKIO 不会托管第三方视频或章节。',mylistheading:'我的收藏',mysub:'保存在此设备上的作品。',myempty:'还没有收藏作品。',safetyTitle:'尊重版权的作品集',safetyText:'演示卡片仅用于展示，不是官方目录或播放链接。上线前将核实使用权限。',tagline:'发现下一段故事。',demo:'演示原型',coming:'AKIO 介绍 — 即将推出',saved:'已加入收藏',removed:'已从收藏中移除',profile:'用户资料 — 即将推出'}
+};
+let currentLang='id',genre='All';
+function favs(){try{return JSON.parse(localStorage.getItem('akio_favs')||'[]')}catch(e){return []}}
+function setFavs(a){localStorage.setItem('akio_favs',JSON.stringify(a))}
+function card(t){let is=favs().includes(t.id);return `<article class="card" role="button" tabindex="0" onclick="openDetail(${t.id})" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openDetail(${t.id})}"><div class="poster" style="background:${t.tone}"><span class="tag">${t.status}</span><button class="heart" onclick="event.stopPropagation();toggleFav(${t.id})" aria-label="Favorite">${is?'♥':'♡'}</button><span class="sig">${t.mark}</span></div><div class="cardbody"><div class="title" title="${t.title}">${t.title}</div><div class="meta"><span class="type">${t.type}</span><span>${t.genre}</span></div></div></article>`}
+
+const descriptions={
+1:'Kisah demo tentang perjalanan melintasi kota yang terancam oleh kekuatan misterius. Sinopsis ini hanya contoh untuk menunjukkan tampilan halaman detail.',
+2:'Sebuah arsip rahasia menyimpan kisah dunia fantasi dan petualangan. Sinopsis ini hanya contoh untuk prototipe AKIO.',
+3:'Cerita keseharian hangat tentang persahabatan, kenangan, dan sebuah toko buku kecil. Sinopsis ini hanya contoh untuk prototipe AKIO.',
+4:'Petualangan melintasi awan dan kota-kota kuno untuk menemukan rahasia sebuah gerbang. Sinopsis ini hanya contoh untuk prototipe AKIO.',
+5:'Dua orang asing bertemu di bawah langit malam dan mulai memahami satu sama lain. Sinopsis ini hanya contoh untuk prototipe AKIO.',
+6:'Di dunia tempat bara api menyimpan sihir, seorang pengembara mencari jawaban tentang masa lalu. Sinopsis ini hanya contoh untuk prototipe AKIO.',
+7:'Perjalanan panjang melewati pulau-pulau terapung dan persahabatan baru. Sinopsis ini hanya contoh untuk prototipe AKIO.',
+8:'Para siswa akademi bersaing dalam turnamen yang menguji keberanian dan kerja sama. Sinopsis ini hanya contoh untuk prototipe AKIO.',
+9:'Kisah tenang tentang kehidupan baru, kebun kecil, dan hari-hari setelah hujan. Sinopsis ini hanya contoh untuk prototipe AKIO.',
+10:'Seorang pengelana mengikuti jejak legenda melewati gerbang giok kuno. Sinopsis ini hanya contoh untuk prototipe AKIO.'
+};
+let selectedDetailId=null;
+function openDetail(id){
+  const t=titles.find(x=>x.id===id); if(!t)return; selectedDetailId=id;
+  document.getElementById('detailTitle').textContent=t.title;
+  document.getElementById('detailHero').style.background=t.tone;
+  document.getElementById('detailMeta').innerHTML=`<span class="pill">${t.type}</span><span class="pill">${t.genre}</span><span class="pill">Demo</span>`;
+  document.getElementById('detailDescription').textContent=descriptions[id]||'Informasi judul akan ditambahkan setelah diverifikasi.';
+  const note=document.getElementById('detailNote');
+  if(t.type==='Anime'||t.type==='Donghua'){
+    note.innerHTML='<div class="shield">🎬</div><div><strong>Informasi tontonan resmi</strong><p>Ini hanya contoh demo. Tautan ke layanan resmi akan ditambahkan setelah sumber dan hak penggunaannya diperiksa. AKIO tidak menyediakan video dari pihak lain tanpa izin.</p></div>';
+  }else{
+    note.innerHTML='<div class="shield">📚</div><div><strong>Informasi bacaan</strong><p>Ini hanya contoh demo, bukan chapter yang bisa dibaca. Komik hanya akan diterbitkan setelah izin publikasinya jelas.</p></div>';
+  }
+  updateDetailFavorite();
+  document.getElementById('detailModal').classList.add('open');
+}
+function closeDetail(){document.getElementById('detailModal').classList.remove('open');}
+function updateDetailFavorite(){if(selectedDetailId===null)return;let is=favs().includes(selectedDetailId);document.getElementById('detailFavorite').textContent=is?'♥ Tersimpan di favorit':'♡ Tambah ke favorit';}
+
+function render(){let q=document.getElementById('search').value.toLowerCase().trim(),type=document.getElementById('kind').value,sort=document.getElementById('sort').value;let arr=titles.filter(t=>(t.title.toLowerCase().includes(q)||t.genre.toLowerCase().includes(q)||t.type.toLowerCase().includes(q))&&(type==='all'||t.type===type)&&(genre==='All'||t.genre===genre));if(sort==='az')arr.sort((a,b)=>a.title.localeCompare(b.title));document.getElementById('grid').innerHTML=arr.map(card).join('');document.getElementById('empty').style.display=arr.length?'none':'block';let fs=titles.filter(t=>favs().includes(t.id));document.getElementById('mygrid').innerHTML=fs.map(card).join('');document.getElementById('myempty').style.display=fs.length?'none':'block'}
+function toggleFav(id){let a=favs(),t=translations[currentLang];if(a.includes(id)){a=a.filter(x=>x!==id);showToast(t.removed)}else{a.push(id);showToast(t.saved)}setFavs(a);render()}
+function showToast(s){let e=document.getElementById('toast');e.textContent=s;e.classList.add('show');clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>e.classList.remove('show'),2200)}
+function applyLang(lang){currentLang=lang;let t=translations[lang]||translations.id;document.documentElement.lang=lang;document.querySelectorAll('[data-i]').forEach(e=>{let k=e.dataset.i;if(t[k])e.innerHTML=t[k]});document.querySelectorAll('[data-placeholder]').forEach(e=>{let k=e.dataset.placeholder;if(t[k])e.placeholder=t[k]});render()}
+document.getElementById('search').addEventListener('input',render);document.getElementById('kind').addEventListener('change',render);document.getElementById('sort').addEventListener('change',render);document.getElementById('language').addEventListener('change',e=>applyLang(e.target.value));document.getElementById('profile').addEventListener('click',()=>showToast(translations[currentLang].profile));
+document.getElementById('closeModal').addEventListener('click',closeDetail);
+document.getElementById('detailDone').addEventListener('click',closeDetail);
+document.getElementById('detailModal').addEventListener('click',e=>{if(e.target.id==='detailModal')closeDetail()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeDetail()});
+document.getElementById('detailFavorite').addEventListener('click',()=>{if(selectedDetailId!==null){toggleFav(selectedDetailId);updateDetailFavorite()}});
+document.querySelectorAll('.chip').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.chip').forEach(x=>x.classList.remove('active'));b.classList.add('active');genre=b.dataset.genre;render()}));render();
+
+// AKIO-UNIVERSE Search-First: local profile and favorites only.
+function readLocal(key, fallback){try{const v=localStorage.getItem(key);return v===null?fallback:JSON.parse(v)}catch(e){return fallback}}
+function saveLocal(key, value){try{localStorage.setItem(key,JSON.stringify(value))}catch(e){}}
+let profileName=readLocal('akio_profile_name','Universe Explorer');
+let exploreCount=readLocal('akio_explore_count',0);
+function updateUniverse(){
+  const favorites=favs();
+  const exp=Math.min(99, favorites.length*20 + Math.min(exploreCount,3)*10);
+  const nameEl=document.getElementById('profileNameText'); if(nameEl) nameEl.textContent=profileName;
+  const levelEl=document.getElementById('levelNum'); if(levelEl) levelEl.textContent=1+Math.floor(exp/100);
+  const expEl=document.getElementById('expText'); if(expEl) expEl.textContent=(exp%100)+' / 100 EXP';
+  const bar=document.getElementById('expBar'); if(bar) bar.style.width=(exp%100)+'%';
+  const exploreEl=document.getElementById('missionExplore'); if(exploreEl) exploreEl.textContent=Math.min(exploreCount,3)+'/3';
+  const favEl=document.getElementById('missionFav'); if(favEl) favEl.textContent=(favorites.length?1:0)+'/1';
+}
+const oldOpenDetail=openDetail;
+openDetail=function(id){oldOpenDetail(id);exploreCount++;saveLocal('akio_explore_count',exploreCount);updateUniverse()};
+const oldToggleFav=toggleFav;
+toggleFav=function(id){oldToggleFav(id);updateUniverse()};
+function updateAccountCenter(){
+ const name=profileName || 'Universe Explorer';
+ const n=document.getElementById('accountDisplayName'); if(n)n.textContent=name;
+ const a=document.getElementById('accountAvatar'); if(a)a.textContent=(name.trim()[0]||'U').toUpperCase();
+ const e=document.getElementById('accountDisplayEmail'); if(e)e.textContent='Profil lokal • belum login online';
+}
+function changeProfile(){
+ const name=prompt('Nama profil baru:',profileName);
+ if(name===null)return;const clean=name.trim().slice(0,32);
+ if(!clean){showToast('Nama tidak boleh kosong.');return}
+ profileName=clean;saveLocal('akio_profile_name',profileName);updateUniverse();updateAccountCenter();showToast('Profil diperbarui.');
+}
+document.getElementById('accountEdit').addEventListener('click',changeProfile);
+document.getElementById('accountEditName').addEventListener('click',changeProfile);
+document.getElementById('accountResetData').addEventListener('click',()=>{
+ if(!confirm('Hapus nama profil dan progres lokal dari perangkat ini?'))return;
+ ['akio_profile_name','akio_explore_count'].forEach(k=>localStorage.removeItem(k));
+ profileName='Universe Explorer';exploreCount=0;
+ try{localStorage.removeItem('akio_favs')}catch(e){}
+ updateUniverse();updateAccountCenter();render();showToast('Data lokal direset.');
+});
+updateUniverse();updateAccountCenter();
+
+</script>
+</body>
+</html>
