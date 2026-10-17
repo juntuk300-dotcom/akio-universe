@@ -258,5 +258,128 @@ document.getElementById('accountResetData').addEventListener('click',()=>{
 updateUniverse();updateAccountCenter();
 
 </script>
+
+<!-- AKIO-UNIVERSE: LOGIN & REGISTER -->
+<div id="akio-auth" style="max-width:360px;margin:24px auto;padding:20px;background:#111;color:white;border:1px solid #8b1b2b;border-radius:16px;font-family:Arial,sans-serif">
+  <h2 style="color:#e63950;margin-top:0">AKIO-UNIVERSE</h2>
+  <p id="akio-message">Masuk atau buat akun untuk memulai.</p>
+
+  <form id="akio-form">
+    <input id="akio-email" type="email" placeholder="Alamat email" required
+      autocomplete="email"
+      style="box-sizing:border-box;width:100%;padding:12px;margin:7px 0;background:#222;color:white;border:1px solid #444;border-radius:8px">
+
+    <input id="akio-password" type="password" placeholder="Password (min. 6 karakter)" required minlength="6"
+      autocomplete="current-password"
+      style="box-sizing:border-box;width:100%;padding:12px;margin:7px 0;background:#222;color:white;border:1px solid #444;border-radius:8px">
+
+    <button type="submit" id="akio-login"
+      style="width:100%;padding:12px;margin-top:8px;background:#b91c35;color:white;border:0;border-radius:8px">
+      Login
+    </button>
+    <button type="button" id="akio-register"
+      style="width:100%;padding:12px;margin-top:8px;background:#222;color:white;border:1px solid #b91c35;border-radius:8px">
+      Daftar Akun
+    </button>
+    <button type="button" id="akio-logout" hidden
+      style="width:100%;padding:12px;margin-top:8px;background:#333;color:white;border:0;border-radius:8px">
+      Logout
+    </button>
+  </form>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+(() => {
+  const SUPABASE_URL = "MASUKKAN_PROJECT_URL";
+  const SUPABASE_KEY = "MASUKKAN_PUBLISHABLE_KEY";
+
+  const message = document.getElementById("akio-message");
+  const form = document.getElementById("akio-form");
+  const email = document.getElementById("akio-email");
+  const password = document.getElementById("akio-password");
+  const login = document.getElementById("akio-login");
+  const register = document.getElementById("akio-register");
+  const logout = document.getElementById("akio-logout");
+
+  if (!window.supabase ||
+      SUPABASE_URL === "https://ppjkvatshcrfdmlckecz.supabase.co/rest/v1/
+‎
+‎" ||
+      SUPABASE_KEY === "sb_publishable_SVwgprlSQqUYHbw_5FXyHg_Q07q_y5f") {
+    message.textContent = "Konfigurasi Supabase belum diisi.";
+    return;
+  }
+
+  const client = window.supabase.createClient(
+    SUPABASE_URL, SUPABASE_KEY
+  );
+
+  async function refreshSession() {
+    const { data } = await client.auth.getSession();
+    const user = data.session?.user;
+
+    message.textContent = user
+      ? "Login sebagai " + user.email
+      : "Masuk atau buat akun untuk memulai.";
+
+    email.hidden = !!user;
+    password.hidden = !!user;
+    login.hidden = !!user;
+    register.hidden = !!user;
+    logout.hidden = !user;
+  }
+
+  login.addEventListener("click", async (event) => {
+    event.preventDefault();
+  });
+
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    message.textContent = "Memproses login...";
+
+    const { error } = await client.auth.signInWithPassword({
+      email: email.value.trim(),
+      password: password.value
+    });
+
+    message.textContent = error
+      ? error.message
+      : "Login berhasil!";
+
+    if (!error) await refreshSession();
+  });
+
+  register.addEventListener("click", async () => {
+    if (!form.reportValidity()) return;
+    message.textContent = "Membuat akun...";
+
+    const { data, error } = await client.auth.signUp({
+      email: email.value.trim(),
+      password: password.value
+    });
+
+    if (error) {
+      message.textContent = error.message;
+    } else if (!data.session) {
+      message.textContent =
+        "Akun dibuat! Periksa email untuk verifikasi sebelum login.";
+    } else {
+      message.textContent = "Akun berhasil dibuat!";
+      await refreshSession();
+    }
+  });
+
+  logout.addEventListener("click", async () => {
+    const { error } = await client.auth.signOut();
+    message.textContent = error ? error.message : "Kamu sudah logout.";
+    await refreshSession();
+  });
+
+  refreshSession();
+})();
+</script>
+<!-- AKIO-UNIVERSE: LOGIN & REGISTER END -->
+
 </body>
 </html>
